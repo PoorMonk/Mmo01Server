@@ -1,0 +1,73 @@
+<root>
+    <Properties>
+        <RoleList>
+            <Type>          ROLE_LIST           </Type>
+            <Flags>         BASE                </Flags>
+            <Persistent>    true                </Persistent>
+        </RoleList>
+        <LastSelRoom>
+            <Type>          UINT64              </Type>
+	        <Flags>         BASE                </Flags>
+	        <Default>       0                   </Default>
+        </LastSelRoom>
+    </Properties>
+
+    <BaseMethods>
+        <!-- 客户端请求房间列表 -->
+        <ReqRoomList>
+            <Exposed/>
+        </ReqRoomList>
+        <!-- 选择房间进入游戏 -->
+        <SelectRoom>
+            <Exposed/>
+            <Arg>   UINT64  </Arg>      <!-- 房间id -->
+        </SelectRoom>
+        <!-- 客户端请求角色列表 -->
+        <ReqRoleList>
+            <Exposed/>
+        </ReqRoleList>
+        <!-- 客户端请求选择角色 -->
+        <ReqSelectRole>
+            <Exposed/>
+            <Arg>   DBID    </Arg>
+        </ReqSelectRole>
+    </BaseMethods>
+
+    <!--客户端上回调的方法声明-->
+    <ClientMethods>
+        <!--当实体进入世界空间后，通知客户端-->
+        <onEnter>
+        </onEnter>
+        <!--通知客户端，广播say hello-->
+        <onSay>
+            <Arg>   UNICODE         </Arg>
+        </onSay>
+        <OnReqRoomList>
+            <Arg>   ROOM_LIST   </Arg>
+        </OnReqRoomList>
+        <OnSelectRoom>
+        </OnSelectRoom>
+        <!-- 请求角色列表回调 -->
+        <OnReqRoleList>
+            <Arg>   ROLE_LIST   </Arg>
+        </OnReqRoleList>
+        <!-- 请求选择角色回调 -->
+        <OnSelectRole>
+            <Arg>   UINT8       </Arg>
+            <Arg>   DBID        </Arg>
+        </OnSelectRole>
+    </ClientMethods>
+
+    <!--cell上的方法声明-->
+    <CellMethods>
+        <!--say hello指令-->
+        <say>
+            <!--该参数可以让此方法暴露给客户端调用-->
+            <Exposed/>
+            <!--hello的内容-->
+            <Arg>   UNICODE         </Arg>
+        </say>
+    </CellMethods>
+
+
+</root>

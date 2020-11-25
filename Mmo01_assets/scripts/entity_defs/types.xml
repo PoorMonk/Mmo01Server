@@ -1,0 +1,53 @@
+<root>
+    <DBID>      UINT64  </DBID>
+    <BOOL>      UINT8   </BOOL>
+    <ENTITY_ID> INT32   </ENTITY_ID>
+    <ENTITY_LIST>   ARRAY <of>  ENTITY_ID   </of></ENTITY_LIST>
+
+    <!-- 角色信息，包括数据库ID，名字，角色类型，角色数据 -->
+    <ROLE_INFO> FIXED_DICT
+        <implementedBy>ROLE_INFO.RoleInfoInst</implementedBy>
+        <Properties>
+            <Dbid>
+                <Type>  DBID    </Type>
+            </Dbid>
+            <Name>
+                <Type>  UNICODE    </Type>
+                <DatabaseLength>    256     </DatabaseLength>
+            </Name>
+        </Properties>
+    </ROLE_INFO>
+
+    <!-- 角色列表, 作为ExAccount的持久化变量, 保存账户的角色 -->
+    <ROLE_LIST> FIXED_DICT
+        <implementedBy>ROLE_INFO.ROLE_LIST_PICKLER</implementedBy>
+        <Properties>
+            <Value>
+                <Type>  ARRAY <of>  ROLE_INFO   </of> </Type>
+            </Value>
+        </Properties>
+    </ROLE_LIST>
+
+    <!-- 房间信息 -->
+    <ROOM_INFO> FIXED_DICT
+        <implementedBy>ROOM_INFO.RoomInfoInst</implementedBy>
+        <Properties>
+            <RoomId>
+                <Type>	UINT64	</Type>
+            </RoomId>
+            <Name>
+                <Type>	UNICODE	</Type>
+            </Name>
+        </Properties>
+    </ROOM_INFO>
+
+    <!-- 房间列表 -->
+    <ROOM_LIST> FIXED_DICT
+        <implementedBy>ROOM_INFO.ROOM_LIST_PICKLER</implementedBy>
+        <Properties>
+            <Value>
+                <Type>	ARRAY <of> ROOM_INFO </of>	</Type>
+            </Value>
+        </Properties>
+    </ROOM_LIST>
+</root>

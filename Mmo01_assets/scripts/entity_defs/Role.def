@@ -1,0 +1,31 @@
+<root>
+    <Volatile>
+        <position/>              <!-- 总是同步到客户端 -->
+		<!--<position> 0 </position> 设置为0不同步到客户端-->
+		<!-- <yaw/>                 没有显示的设置则总是同步到客户端 -->
+		<!--<pitch> 20 </pitch>     和玩家位置20米以内同步到客户端-->
+		<yaw/>
+		<pitch/>
+		<roll/>
+
+		<optimized> false </optimized>
+    </Volatile>
+
+    <Interfaces>
+        <Interface> Character   </Interface>
+        <!-- <Interface> Motion      </Interface> -->
+    </Interfaces>
+
+    <Properties>
+
+    </Properties>
+
+    <ClientMethods>
+    </ClientMethods>
+
+    <BaseMethods>
+    </BaseMethods>
+
+    <CellMethods>
+    </CellMethods>
+</root>
